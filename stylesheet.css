@@ -362,29 +362,12 @@ header {
 
 /* Contact Me */
 
-.entry-section {
-    text-align: center;
+#linkedInLink {
+    color: inherit
 }
 
-.entry {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    border: 2px solid var(--clr-neon);
-    border-radius: 0.25em;
-    color: var(--clr-neon);
-    font-size: 1.5rem;
-    background: var(--clr-dark);
-}
-
-.entry__name,
-.entry__email {
-    width: 15em;
-}
-
-.entry__text {
-    width: 50%;
-    height: 20em;
-    min-width: 15em;
+#linkedInLink:hover {
+    opacity: 0.7;
 }
 
 /* footer */
