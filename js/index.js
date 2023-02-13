@@ -11,3 +11,7 @@ navLinks.forEach(link => {
     })
 });
 
+window.onload = function() {
+    var intro = document.querySelector(".intro");
+    intro.style.display = "block";
+  }
