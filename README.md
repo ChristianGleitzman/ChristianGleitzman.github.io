@@ -1,6 +1,6 @@
 # Personal Portfolio Website
 
-Welcome to my personal coding portfolio website! This website showcases my skills, projects, and experiences as a student and programmer.
+Welcome to my personal coding portfolio website. This website showcases my skills, projects, and experiences as a student and programmer.
 
 ## Features
 
