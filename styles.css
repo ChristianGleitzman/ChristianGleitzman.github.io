@@ -180,9 +180,12 @@ body {
     border: 2px solid var(--clr-neon);
     border-radius: 0.5em;
     transition: background-color 0.3s, transform 0.3s, color 0.3s;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.button-container .btn {
     opacity: 0;
     animation: fadeIn 2s forwards;
-    box-sizing: border-box; /* Ensure padding and border are included in width */
 }
 
 .button-container .btn:nth-child(1) {
