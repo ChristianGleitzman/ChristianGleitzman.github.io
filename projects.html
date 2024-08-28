@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects | Christian Gleitzman</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:400,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="projects-page">
+    <header class="navbar">
+        <h2 class="page-title">Christian Gleitzman</h2>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="projects.html">My Projects</a>
+            <a href="contact.html">Contact Me</a>
+        </nav>
+    </header>
+
+    <main class="content projects">
+        <!-- Title and description -->
+        <section class="projects-intro">
+            <h2 class="section-title">My Projects</h2>
+            <p class="section-text">Here are some of the projects I've worked on, ranging from web development to data analysis. Browse through to see what I've been up to! 
+            Alternatively, they can all be viewed on my GitHub profile.</p>
+        </section>
+
+        <!-- Scrollable project section -->
+        <section class="projects-section">
+            <div class="scroll-buttons-container">
+                <button class="scroll-button left">&#9664;</button>
+                <button class="scroll-button right">&#9654;</button>
+            </div>
+            <div class="projects-container">
+                <div class="project-card">
+                    <h3 class="project-title">A Level Maths Revision Game</h3>
+                    <p class="project-description">This project is my A-level computer science coursework, in which I developed an interactive Maths Integration and Differentiation revision game. 
+                    The application uses a combination of client and server-side Python programs, as well as a central server database to store user data and questions. 
+                    The client-side program utilizes the PyQt5 library to create a visually engaging and user-friendly interface for login, main menu, and question answering. 
+                    The game features an immersive pyramid-like structure, where users progress by correctly answering questions. I implemented this feature using the pygame library. 
+                    The server program handles various requests from connected clients with the help of the 'socket' Python library, such as login requests, fetching questions, 
+                    and saving user performance data to the server database.</p>
+                    <h4>Outcomes:</h4>
+                    <p class="project-description">This project provided me with valuable experience in working with stakeholders, designing and implementing a program and relational database from the ground up, 
+                    utilizing and understanding a variety of Python modules, applying theoretical concepts learned in computer science classes in a practical setting, making modifications to the program based on feedback, 
+                    thorough testing and debugging, and using problem-solving skills to find solutions.
+                    <br><br>
+                    The end result was a program that achieved its purpose of helping students at my school practice their Maths, with many finding it to be a useful tool in their revision process.</p>
+                    <div class="project-images">
+                        <img src="https://github.com/ChristianGleitzman/A-Level-Maths-Revision-Game/raw/main/apex.png" alt="Project 1 Image 1">
+                        <img src="https://github.com/ChristianGleitzman/A-Level-Maths-Revision-Game/raw/main/menu.PNG" alt="Project 1 Image 2">
+                    </div>
+                    <ul class="projects-options">
+                        <li class="projects-options-item"><a href="https://github.com/ChristianGleitzman/A-Level-Maths-Revision-Game" class="btn">Source Code</a></li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Movie Ranker</h3>
+                    <p class="project-description">This program is a movie ranking system that uses the Elo rating system to rank movies based on user opinions during match-ups.</p>
+                    <h4>What the program does:</h4>
+                    <ul class="project-description">
+                        <li>The program starts with a list of movies and their attributes (e.g. title, year, director, etc.) which have been scraped from a movie database website.<br> Each movie is saved to a database and initializes the Elo rating for each movie to 1500.</li>
+                        <li>The program then prompts the user to compare two movies and input their opinion on which movie is better using a user interface created using PyQt5.</li>
+                        <li>Based on the user's input, the program updates the Elo ratings of the two movies using the Elo rating system formula and saves these changes to the database.</li>
+                        <li>The user can continue to complete movie matchups or view their least or most favourite movies.</li>
+                    </ul>
+                    <div class="project-images">
+                        <img src="https://github.com/ChristianGleitzman/Movie-Rankings/raw/main/movie_ranker/matchup.PNG" alt="Project 2 Image 1">
+                        <img src="https://github.com/ChristianGleitzman/Movie-Rankings/raw/main/movie_ranker/favourite_movies.PNG" alt="Project 2 Image 2">
+                    </div>
+                    <ul class="projects-options">
+                        <li class="projects-options-item"><a href="https://github.com/ChristianGleitzman/Movie-Rankings" class="btn">Source Code</a></li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Calculator</h3>
+                    <p class="project-description">A simple calculator application built using PyQt5, a library for creating desktop applications with Python. Qt Designer, a GUI layout and forms designer, was used for creating the calculator's interface.</p>
+                    <h4>Features:</h4>
+                    <ul class="project-description">
+                        <li>Basic arithmetic operations (addition, subtraction, multiplication, division)</li>
+                        <li>Ability to chain multiple operations together (e.g. 3 + 5 x 6)</li>
+                        <li>Memory functions (memory clear and recall)</li>
+                        <li>Clear and backspace buttons</li>
+                        <li>Scientific functions (sin, cos, tan, log, square root)</li>
+                    </ul>
+                    <div class="project-images">
+                        <img src="https://github.com/ChristianGleitzman/Calculator/raw/main/images/calculation.PNG" alt="Project 3 Image 1">
+                        <img src="https://github.com/ChristianGleitzman/Calculator/raw/main/images/answer.PNG" alt="Project 3 Image 2">
+                    </div>
+                    <ul class="projects-options">
+                        <li class="projects-options-item"><a href="https://github.com/ChristianGleitzman/Calculator" class="btn">Source Code</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Christian Gleitzman</p>
+        <ul class="social-list">
+            <li class="social-list-item"><a href="https://github.com/ChristianGleitzman" class="social-list-link"><i class="fa fa-github"></i></a></li>
+            <li class="social-list-item"><a href="https://www.linkedin.com/in/christian-gleitzman" class="social-list-link"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,515 @@
+/* Root variables for theme */
+:root {
+    --ff-primary: 'Source Sans Pro', sans-serif;
+    --ff-secondary: 'Source Code Pro', monospace;
+
+    --fw-reg: 300;
+    --fw-bold: 900;
+
+    --clr-neon: hsl(162, 92%, 50%);
+    --clr-dark: hsl(0, 0%, 7.5%);
+    --clr-light: hsl(0, 0%, 40%);
+    --clr-button-bg: hsl(162, 92%, 40%);
+    --clr-button-hover-bg: hsl(162, 92%, 60%);
+    --clr-section-bg: hsl(0, 0%, 10%); 
+
+    /* Font sizes */
+    --fs-h1: 2rem; 
+    --fs-h2: 1.5rem; 
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    /* Border properties */
+    --border-width: 8px; 
+    --border-radius: 0.5em; 
+}
+
+/* Adjust font sizes and border widths for larger screens */
+@media (min-width: 800px) {
+    :root {
+        --fs-h1: 3rem; /* Reduced size for larger screens */
+        --fs-h2: 2rem; /* Adjusted subtitle size for larger screens */
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+
+        --border-width: 8px; /* Maintain border width on large screens */
+    }
+}
+
+/* Adjust font sizes and border widths for smaller screens */
+@media (max-width: 599px) {
+    :root {
+        --fs-h1: 1.75rem; /* Smaller font size for mobile screens */
+        --fs-h2: 1.25rem;
+        --fs-h3: 1rem;
+        --fs-body: 0.875rem;
+
+        --border-width: 4px; /* Reduced border width for small screens */
+    }
+
+
+    /* Main content area */
+    .content .projects{
+        padding: 1rem; /* Adjusted padding for small screens */
+        max-width: 100%; /* Ensure content area doesn't exceed screen width */
+        margin: 0 auto;
+        box-sizing: border-box; /* Ensure padding is included in width calculation */
+    }
+
+    .projects-section {
+        padding: 0.5rem; /* Adjust padding for smaller screens */
+        height: 60vh; /* Adjust height based on screen size */
+        overflow: hidden; /* Hide overflow */
+    }
+
+    .projects-container {
+        display: flex; /* Ensure horizontal scroll on small screens */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        scroll-snap-type: x mandatory; /* Ensure one card is visible at a time */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    }
+
+    .project-card {
+        min-width: 100%; /* Ensure each card takes full width of the container */
+        max-width: 100%;
+        height: 100%; /* Ensure cards take full height */
+        overflow-y: auto; /* Make content inside card scrollable */
+        box-sizing: border-box;
+        scroll-snap-align: start; /* Snap to each card */
+    }
+
+    .project-title {
+        font-size: var(--fs-h3); /* Adjust title size */
+    }
+
+    .project-description {
+        font-size: var(--fs-body); /* Adjust description text size */
+    }
+
+    .project-images {
+        flex-direction: column; /* Stack images vertically on small screens */
+    }
+
+    .project-images img {
+        width: 100%; /* Ensure images fill the width of the container */
+        margin-bottom: 1rem; /* Add space between stacked images */
+    }
+}
+
+/* Resetting some default styles */
+body, h1, a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+    font-family: 'Arial', sans-serif;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+strong { font-weight: var(--fw-bold); }
+
+/* Body styling for vertical and horizontal centering */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    background-color: var(--clr-dark);
+    color: var(--clr-neon);
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    margin: 0;
+    min-height: 100vh; /* Full viewport height */
+    box-sizing: border-box;
+}
+
+/* Navigation bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--clr-section-bg);
+    border-bottom: 2px solid var(--clr-neon);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.page-title {
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-h3);
+    color: var(--clr-neon);
+}
+
+.nav-links a {
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-body);
+    color: var(--clr-light);
+    margin-left: 1.5rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--clr-neon);
+}
+
+/* Landing page container */
+.landing-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex: 1; /* Take up remaining space */
+    width: 100%; /* Full width */
+}
+
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    width: 90%;
+    max-width: 800px;
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+/* Title styling */
+.title-container {
+    width: 100%;
+    padding: 0.75em 1em; /* Reduced padding for flatter appearance */
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius);
+    border: var(--border-width) solid var(--clr-neon);
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    animation-delay: 0.5s; /* Fade in first, starting after 0.5s */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.title-container h1 {
+    margin-bottom: 0.5em;
+    font-size: var(--fs-h1);
+}
+
+.title-container h2.sub-title {
+    font-size: var(--fs-h2);
+    font-family: var(--ff-secondary);
+    margin-bottom: 0;
+    border-radius: 0.25em;
+    text-decoration: underline;
+}
+
+/* Button container styling */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Landing Page Button styling */
+.btn {
+    width: 100%; /* Make buttons take full width of button-container */
+    /* Removed max-width to align with title container */
+    padding: 15px 30px;
+    font-size: var(--fs-h3);
+    text-align: center;
+    background-color: var(--clr-button-bg);
+    color: var(--clr-dark);
+    font-family: var(--ff-secondary);
+    border: 2px solid var(--clr-neon);
+    border-radius: 0.5em;
+    transition: background-color 0.3s, transform 0.3s, color 0.3s;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.button-container .btn:nth-child(1) {
+    animation-delay: 1.5s; /* Fade in second, after the title */
+}
+
+.button-container .btn:nth-child(2) {
+    animation-delay: 1.75s; /* Fade in third */
+}
+
+.button-container .btn:nth-child(3) {
+    animation-delay: 2.0s; /* Fade in last */
+}
+
+.btn:hover {
+    background-color: var(--clr-button-hover-bg);
+    transform: scale(1.05);
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Main content area */
+.content {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--clr-text-light);
+}
+
+/* Section styling */
+.section-title {
+    font-size: var(--fs-h2);
+    color: var(--clr-neon);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--clr-neon);
+    padding-bottom: 0.5rem;
+}
+
+.section-text {
+    font-size: var(--fs-body);
+    color: var(--clr-text-light);
+    margin-bottom: 2rem;
+}
+
+.linkedInLink {
+    color: inherit;
+    font-family: var(--ff-secondary);
+    text-decoration: underline;
+}
+
+.linkedInLink:hover {
+    opacity: 0.7;
+}
+
+/* Contact Me Page styling*/
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--clr-dark);
+    border-radius: 10px;
+}
+
+label, input {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+input { 
+    background-color: var(--clr-light);
+    border: 2px solid var(--clr-neon);
+    border-radius: 3px;
+}
+
+input[type="submit"] {
+    margin-top: 1em;
+    background-color: var(--clr-button-bg);
+    color: var(--clr-dark);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Scrollable Projects Section */
+
+.content.projects {
+    padding: 1rem; /* Adjusted padding for small screens */
+    max-width: 100%; /* Ensure content area doesn't exceed screen width */
+    margin: 0 auto;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Projects Section */
+.projects-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 1rem 0; /* Ensure padding is sufficient for small screens */
+    overflow: hidden; /* Prevent overflow on small screens */
+}
+
+/* Container for scroll buttons */
+.scroll-buttons-container {
+    position: relative;
+    top: -1rem;
+    right: 1em;
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+}
+
+/* Scroll buttons */
+.scroll-button {
+    background-color: var(--clr-dark);
+    color: var(--clr-button-bg);
+    border: 2px solid var(--clr-button-bg);
+    border-radius: 5px;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+
+.scroll-button:hover {
+    color: var(--clr-button-hover-bg);
+    border-color: var(--clr-button-hover-bg);
+}
+
+.scroll-button:active {
+    color: var(--clr-light);
+    border-color: var(--clr-light);
+}
+
+/* Projects Container */
+.projects-container {
+    display: flex;
+
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory; /* Snap to each card */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    height: 60vh;
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+/* Project Card */
+.project-card {
+    min-width: 100%; /* Ensure each card takes full width */
+    max-width: 100%; /* Ensure card doesn't overflow */
+    margin: 0 auto;
+    padding: 1rem; /* Adjusted padding */
+    box-sizing: border-box;
+    background-color: var(--clr-dark);
+    border: 2px solid var(--clr-neon);
+    border-radius: 0.5em;
+    flex-shrink: 0;
+    text-align: left;
+    height: auto; /* Allow height to adjust based on content */
+    overflow-y: auto; /* Vertical scroll within card if needed */
+    scroll-snap-align: start; /* Snap to each card */
+}
+
+/* Project Card Scrollbar */
+.project-card::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.project-card::-webkit-scrollbar-thumb {
+    background-color: var(--clr-button-bg); /* Thumb (the draggable part) color */
+    border-radius: 4px; /* Rounded edges for the scrollbar thumb */
+    border: 2px solid var(--clr-dark); /* Border around the thumb to create some space between the scrollbar and the thumb */
+}
+
+.project-card::-webkit-scrollbar-track {
+    background-color: var(--clr-dark); /* Background of the scrollbar track */
+    border-radius: 4px; /* Rounded edges for the scrollbar track */
+}
+
+/* Container for images */
+.project-images {
+    display: flex;
+    gap: 0.5rem; /* Space between images */
+}
+
+/* Responsive images */
+.project-images img {
+    border-radius: 5px;
+    flex: 1 1 calc(50% - 0.5rem); /* Two images per row */
+    max-width: calc(50% - 0.5rem); /* Ensure images fit within the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the container without stretching */
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 599px) {
+    .content.projects {
+        padding: 1rem; /* Adjust padding for small screens */
+        max-width: 100%; /* Ensure full width */
+    }
+
+    .projects-section {
+        padding: 0.5rem; /* Adjust padding */
+        height: auto; /* Allow height to adjust based on content */
+        overflow: visible; /* Allow overflow to ensure content is visible */
+    }
+
+    .project-card {
+        min-width: 100%; /* Ensure full width */
+        max-width: 100%; /* Ensure no overflow */
+    }
+
+    .project-images {
+        flex-direction: column; /* Stack images vertically on small screens */
+        gap: 1rem; /* Space between images */
+    }
+
+    .project-images img {
+        width: 100%; /* Full width of the container */
+    }
+
+    .scroll-buttons-container {
+        right: 0.5rem; /* Adjust button position */
+    }
+}
+
+.project-title {
+    font-size: var(--fs-h3);
+    color: var(--clr-neon);
+}
+
+.project-description {
+    font-size: var(--fs-body);
+    color: var(--clr-light);
+}
+
+/* Footer styling */
+.footer {
+    text-align: center;
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-h3);
+    color: var(--clr-neon);
+    vertical-align: baseline;
+    background: var(--clr-dark);
+    padding: 1.5em 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 1em 0 0;
+    padding: 0;
+}
+
+.social-list-item {
+    margin: 0 0.75em;
+}
+
+.social-list-link {
+    padding: 0.5em;
+}
+
+.social-list-link:hover {
+    opacity: 0.7;
+}
+
