@@ -1,11 +1,11 @@
 # Personal Portfolio Website
 
-Welcome to my personal coding portfolio website. This website showcases my skills, projects, and experiences as a student and programmer.
+This is my personal coding portfolio website that showcases my skills, projects, and experiences as a student and programmer.
 
 ## Features
 
 - An about me section that introduces me, my background, and my goals
-- A portfolio section that displays my projects, each with a description, screenshots, and the technologies used
+- A portfolio section that displays my projects, each with a description/overview, screenshots, and aspects or features of the project. These are similar to the descriptions of the projects on my GitHub profile.
 - A contact form that allows visitors to reach out to me for job opportunities, collaborations, or any other inquiries
 
 ## Technologies Used
