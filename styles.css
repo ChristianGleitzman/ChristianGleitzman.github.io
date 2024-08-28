@@ -34,6 +34,7 @@
 
         --border-width: 8px; /* Maintain border width on large screens */
     }
+
 }
 
 /* Adjust font sizes and border widths for smaller screens */
@@ -47,53 +48,6 @@
         --border-width: 4px; /* Reduced border width for small screens */
     }
 
-
-    /* Main content area */
-    .content .projects{
-        padding: 1rem; /* Adjusted padding for small screens */
-        max-width: 100%; /* Ensure content area doesn't exceed screen width */
-        margin: 0 auto;
-        box-sizing: border-box; /* Ensure padding is included in width calculation */
-    }
-
-    .projects-section {
-        padding: 0.5rem; /* Adjust padding for smaller screens */
-        height: 60vh; /* Adjust height based on screen size */
-        overflow: hidden; /* Hide overflow */
-    }
-
-    .projects-container {
-        display: flex; /* Ensure horizontal scroll on small screens */
-        overflow-x: auto; /* Enable horizontal scrolling */
-        scroll-snap-type: x mandatory; /* Ensure one card is visible at a time */
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
-    }
-
-    .project-card {
-        min-width: 100%; /* Ensure each card takes full width of the container */
-        max-width: 100%;
-        height: 100%; /* Ensure cards take full height */
-        overflow-y: auto; /* Make content inside card scrollable */
-        box-sizing: border-box;
-        scroll-snap-align: start; /* Snap to each card */
-    }
-
-    .project-title {
-        font-size: var(--fs-h3); /* Adjust title size */
-    }
-
-    .project-description {
-        font-size: var(--fs-body); /* Adjust description text size */
-    }
-
-    .project-images {
-        flex-direction: column; /* Stack images vertically on small screens */
-    }
-
-    .project-images img {
-        width: 100%; /* Ensure images fill the width of the container */
-        margin-bottom: 1rem; /* Add space between stacked images */
-    }
 }
 
 /* Resetting some default styles */
@@ -325,6 +279,7 @@ input[type="submit"] {
 
 .content.projects {
     padding: 1rem; /* Adjusted padding for small screens */
+    width: 80%;
     max-width: 100%; /* Ensure content area doesn't exceed screen width */
     margin: 0 auto;
     box-sizing: border-box; /* Include padding in width calculation */
@@ -376,7 +331,6 @@ input[type="submit"] {
 /* Projects Container */
 .projects-container {
     display: flex;
-
     overflow-x: hidden;
     scroll-snap-type: x mandatory; /* Snap to each card */
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
@@ -427,15 +381,27 @@ input[type="submit"] {
 /* Responsive images */
 .project-images img {
     border-radius: 5px;
-    flex: 1 1 calc(50% - 0.5rem); /* Two images per row */
-    max-width: calc(50% - 0.5rem); /* Ensure images fit within the container */
+    flex: 1 1 calc(40% - 0.5rem); /* Two images per row */
+    max-width: calc(40% - 0.5rem); /* Ensure images fit within the container */
     height: auto; /* Maintain aspect ratio */
     object-fit: cover; /* Cover the container without stretching */
 }
 
+.project-title {
+    font-size: var(--fs-h3);
+    color: var(--clr-neon);
+}
+
+.project-description {
+    font-size: var(--fs-body);
+    color: var(--clr-light);
+}
+
 /* Media Query for Small Screens */
 @media (max-width: 599px) {
+
     .content.projects {
+        width: 100%;
         padding: 1rem; /* Adjust padding for small screens */
         max-width: 100%; /* Ensure full width */
     }
@@ -452,27 +418,18 @@ input[type="submit"] {
     }
 
     .project-images {
+        width: 100%;
         flex-direction: column; /* Stack images vertically on small screens */
         gap: 1rem; /* Space between images */
     }
 
     .project-images img {
-        width: 100%; /* Full width of the container */
+        max-width: 100%;
     }
 
     .scroll-buttons-container {
         right: 0.5rem; /* Adjust button position */
     }
-}
-
-.project-title {
-    font-size: var(--fs-h3);
-    color: var(--clr-neon);
-}
-
-.project-description {
-    font-size: var(--fs-body);
-    color: var(--clr-light);
 }
 
 /* Footer styling */
