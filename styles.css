@@ -69,15 +69,15 @@ strong { font-weight: var(--fw-bold); }
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
+    justify-content: center;
+    align-items: center; 
     background-color: var(--clr-dark);
     color: var(--clr-neon);
     font-family: var(--ff-secondary);
     font-size: var(--fs-body);
     line-height: 1.6;
     margin: 0;
-    min-height: 100vh; /* Full viewport height */
+    min-height: 100vh; 
     box-sizing: border-box;
 }
 
@@ -117,8 +117,8 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    flex: 1; /* Take up remaining space */
-    width: 100%; /* Full width */
+    flex: 1; 
+    width: 100%; 
 }
 
 .landing-container {
@@ -129,20 +129,20 @@ body {
     text-align: left;
     width: 90%;
     max-width: 800px;
-    box-sizing: border-box; /* Include padding and border in width */
+    box-sizing: border-box; 
 }
 
 /* Title styling */
 .title-container {
     width: 100%;
-    padding: 0.75em 1em; /* Reduced padding for flatter appearance */
+    padding: 0.75em 1em; 
     margin-bottom: 1.5rem;
     border-radius: var(--border-radius);
     border: var(--border-width) solid var(--clr-neon);
     opacity: 0;
     animation: fadeIn 2s forwards;
-    animation-delay: 0.5s; /* Fade in first, starting after 0.5s */
-    box-sizing: border-box; /* Ensure padding and border are included in width */
+    animation-delay: 0.5s; 
+    box-sizing: border-box; 
 }
 
 .title-container h1 {
@@ -169,8 +169,7 @@ body {
 
 /* Landing Page Button styling */
 .btn {
-    width: 100%; /* Make buttons take full width of button-container */
-    /* Removed max-width to align with title container */
+    width: 100%;
     padding: 15px 30px;
     font-size: var(--fs-h3);
     text-align: center;
@@ -180,7 +179,7 @@ body {
     border: 2px solid var(--clr-neon);
     border-radius: 0.5em;
     transition: background-color 0.3s, transform 0.3s, color 0.3s;
-    box-sizing: border-box; /* Ensure padding and border are included in width */
+    box-sizing: border-box; 
 }
 
 .button-container .btn {
@@ -213,6 +212,7 @@ body {
 }
 
 /* Main content area */
+
 .content {
     padding: 2rem;
     max-width: 800px;
@@ -221,6 +221,7 @@ body {
 }
 
 /* Section styling */
+
 .section-title {
     font-size: var(--fs-h2);
     color: var(--clr-neon);
@@ -281,11 +282,11 @@ input[type="submit"] {
 /* Scrollable Projects Section */
 
 .content.projects {
-    padding: 1rem; /* Adjusted padding for small screens */
+    padding: 1rem; 
     width: 80%;
-    max-width: 100%; /* Ensure content area doesn't exceed screen width */
+    max-width: 100%; 
     margin: 0 auto;
-    box-sizing: border-box; /* Include padding in width calculation */
+    box-sizing: border-box; 
 }
 
 /* Projects Section */
@@ -296,8 +297,8 @@ input[type="submit"] {
     align-items: center;
     position: relative;
     width: 100%;
-    padding: 1rem 0; /* Ensure padding is sufficient for small screens */
-    overflow: hidden; /* Prevent overflow on small screens */
+    padding: 1rem 0; 
+    overflow: hidden; 
 }
 
 /* Container for scroll buttons */
@@ -335,7 +336,7 @@ input[type="submit"] {
 .projects-container {
     display: flex;
     overflow-x: hidden;
-    scroll-snap-type: x mandatory; /* Snap to each card */
+    scroll-snap-type: x mandatory; 
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
     height: 60vh;
     width: 100%;
@@ -385,7 +386,7 @@ input[type="submit"] {
 .project-images img {
     border-radius: 5px;
     flex: 1 1 calc(40% - 0.5rem); /* Two images per row */
-    max-width: calc(40% - 0.5rem); /* Ensure images fit within the container */
+    max-width: calc(40% - 0.5rem); 
     height: auto; /* Maintain aspect ratio */
     object-fit: cover; /* Cover the container without stretching */
 }
@@ -400,30 +401,29 @@ input[type="submit"] {
     color: var(--clr-light);
 }
 
-/* Media Query for Small Screens */
 @media (max-width: 599px) {
 
     .content.projects {
         width: 100%;
-        padding: 1rem; /* Adjust padding for small screens */
-        max-width: 100%; /* Ensure full width */
+        padding: 1rem; 
+        max-width: 100%; 
     }
 
     .projects-section {
-        padding: 0.5rem; /* Adjust padding */
-        height: auto; /* Allow height to adjust based on content */
-        overflow: visible; /* Allow overflow to ensure content is visible */
+        padding: 0.5rem; 
+        height: auto; 
+        overflow: visible; 
     }
 
     .project-card {
-        min-width: 100%; /* Ensure full width */
-        max-width: 100%; /* Ensure no overflow */
+        min-width: 100%; 
+        max-width: 100%; 
     }
 
     .project-images {
         width: 100%;
         flex-direction: column; /* Stack images vertically on small screens */
-        gap: 1rem; /* Space between images */
+        gap: 1rem; 
     }
 
     .project-images img {
@@ -431,7 +431,7 @@ input[type="submit"] {
     }
 
     .scroll-buttons-container {
-        right: 0.5rem; /* Adjust button position */
+        right: 0.5rem; 
     }
 }
 
