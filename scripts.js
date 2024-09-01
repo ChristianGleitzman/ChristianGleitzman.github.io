@@ -117,3 +117,27 @@ function calculateScrollAmount() {
     // Calculate the width of one card (or adjust if cards have margins/paddings)
     return scrollContainer.querySelector(".project-card").offsetWidth; // Added 20px for margin/padding if necessary
 }
+
+document.getElementById("contact-form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+        method: "POST",
+        body: formData,
+        mode: "no-cors"
+    }).then(() => {
+        // Display success message
+        document.getElementById("form-status").innerText = "Thank you! Your message has been sent.";
+        document.getElementById("form-status").style.color = "green";
+
+        // Optionally clear the form
+        form.reset();
+    }).catch(error => {
+        // Display error message
+        document.getElementById("form-status").innerText = "Oops! There was a problem sending your message.";
+        document.getElementById("form-status").style.color = "red";
+    });
+});

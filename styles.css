@@ -236,13 +236,13 @@ body {
     margin-bottom: 2rem;
 }
 
-.linkedInLink {
+.inlineLink {
     color: inherit;
     font-family: var(--ff-secondary);
     text-decoration: underline;
 }
 
-.linkedInLink:hover {
+.inlineLink:hover {
     opacity: 0.7;
 }
 
@@ -277,6 +277,12 @@ input[type="submit"] {
     padding: 10px;
     cursor: pointer;
     border-radius: 5px;
+}
+
+#form-status {
+    margin-top: 1rem;
+    font-size: 1rem;
+    text-align: center;
 }
 
 /* Scrollable Projects Section */
@@ -355,7 +361,7 @@ input[type="submit"] {
     border-radius: 0.5em;
     flex-shrink: 0;
     text-align: left;
-    height: auto; /* Allow height to adjust based on content */
+    height: auto; 
     overflow-y: auto; /* Vertical scroll within card if needed */
     scroll-snap-align: start; /* Snap to each card */
 }
@@ -366,9 +372,9 @@ input[type="submit"] {
 }
 
 .project-card::-webkit-scrollbar-thumb {
-    background-color: var(--clr-button-bg); /* Thumb (the draggable part) color */
-    border-radius: 4px; /* Rounded edges for the scrollbar thumb */
-    border: 2px solid var(--clr-dark); /* Border around the thumb to create some space between the scrollbar and the thumb */
+    background-color: var(--clr-button-bg); 
+    border-radius: 4px; 
+    border: 2px solid var(--clr-dark); 
 }
 
 .project-card::-webkit-scrollbar-track {
@@ -399,6 +405,11 @@ input[type="submit"] {
 .project-description {
     font-size: var(--fs-body);
     color: var(--clr-light);
+}
+
+.project-card.btn {
+   position: absolute;
+   flex-direction: row;
 }
 
 @media (max-width: 599px) {

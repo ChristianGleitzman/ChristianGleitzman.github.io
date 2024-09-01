@@ -21,14 +21,14 @@
     </header>
 
     <main class="content">
-        <section class="contact-me" id="contact">
+        <section class="contact-me">
             <h2>Contact Me</h2>
             <p class="contact-me-info">The easiest form of direct contact is via my email,
-            chris.gleitzman@gmail.com where I will try my best to respond promptly. 
-            Another way of contacting me is via my <a class="linkedInLink" href="https://www.linkedin.com/in/christian-gleitzman">LinkedIn</a>.
+            <a class="inlineLink" href="mailto:chris.gleitzman@gmail.com">chris.gleitzman@gmail.com</a> where I will try my best to respond promptly. 
+            Another way of contacting me is via my <a class="inlineLink" href="https://www.linkedin.com/in/christian-gleitzman">LinkedIn</a>.
             Alternatively, you can contact me through this website below via this form:</p>
             <div class="form-container">
-                <form action="https://docs.google.com/forms/d/e/1FAIpQLSc__BiQ68zUorGc6_mQVzTtzk-HnPzGu_l9clwJkVG-6lU7Cg/formResponse" method="POST">
+                <form id="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSc__BiQ68zUorGc6_mQVzTtzk-HnPzGu_l9clwJkVG-6lU7Cg/formResponse" method="POST">
                     <label for="entry.1377322308">Name:</label>
                      <input type="text" name="entry.1377322308" id="entry.1377322308" required>
 
@@ -43,6 +43,7 @@
 
                     <input type="submit" value="Submit" class="btn">
                 </form>
+                <div id="form-status"></div>
             </div>
         </section>
     </main>
