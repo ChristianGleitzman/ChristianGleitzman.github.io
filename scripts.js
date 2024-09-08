@@ -82,11 +82,14 @@ function initProjects() {
 
     function updateButtonVisibility() {
         const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+        const tolerance = 2; // Small tolerance to account for scroll precision issues
 
-        leftButton.disabled = scrollContainer.scrollLeft === 0;
-        rightButton.disabled = scrollContainer.scrollLeft >= maxScrollLeft;
+        // Update button states based on scroll position
+        leftButton.disabled = scrollContainer.scrollLeft <= 0;
+        rightButton.disabled = scrollContainer.scrollLeft >= (maxScrollLeft - tolerance);
     }
 
+    // Ensure buttons are enabled/disabled properly after scrolling
     scrollContainer.addEventListener("scroll", debounce(updateButtonVisibility, 50));
 
     // Ensure only one project card is visible after resizing
@@ -114,8 +117,14 @@ function initProjects() {
 function calculateScrollAmount() {
     const scrollContainer = document.querySelector(".projects-container");
     if (!scrollContainer) return 0;
-    // Calculate the width of one card (or adjust if cards have margins/paddings)
-    return scrollContainer.querySelector(".project-card").offsetWidth; // Added 20px for margin/padding if necessary
+    
+    // Calculate the width of one card (consider margins/padding if necessary)
+    const cardWidth = scrollContainer.querySelector(".project-card").offsetWidth;
+
+    // Use the container's width or the card width for scroll amount, depending on screen size
+    const containerWidth = scrollContainer.clientWidth;
+
+    return Math.min(cardWidth, containerWidth); // Ensure we scroll by at least one card
 }
 
 document.getElementById("contact-form").addEventListener("submit", function (event) {
@@ -131,13 +140,13 @@ document.getElementById("contact-form").addEventListener("submit", function (eve
     }).then(() => {
         // Display success message
         document.getElementById("form-status").innerText = "Thank you! Your message has been sent.";
-        document.getElementById("form-status").style.color = "green";
+        document.getElementById("form-status").style.color = "hsl(162, 92%, 50%)";
 
         // Optionally clear the form
         form.reset();
     }).catch(error => {
         // Display error message
         document.getElementById("form-status").innerText = "Oops! There was a problem sending your message.";
-        document.getElementById("form-status").style.color = "red";
+        document.getElementById("form-status").style.color = "hsl(0, 100%, 60%)";
     });
 });
