@@ -41,15 +41,6 @@ async function fetchGitHubProjects() {
     const container = document.getElementById('github-projects');
     
 
-    const excludedRepos = [
-        'ChristianGleitzman.github.io', 
-        'ChristianGleitzman',
-        'House-Price-Predictor',
-        'TaskScheduler',
-        'Sorting-Visualiser',
-        'Weather-App'
-    ];
-
     if (!container) return;
 
     try {
@@ -65,7 +56,7 @@ async function fetchGitHubProjects() {
 
             if (excludedRepos.includes(repo.name)) return;
             
-            //if (!repo.topics.includes('portfolio')) return;
+            if (!repo.topics.includes('portfolio')) return;
 
             const imageUrl = `https://raw.githubusercontent.com/${username}/${repo.name}/${repo.default_branch}/preview.png`;
 

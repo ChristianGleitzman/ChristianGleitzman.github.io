@@ -180,6 +180,7 @@ body {
     border-radius: 0.5em;
     transition: background-color 0.3s, transform 0.3s, color 0.3s;
     box-sizing: border-box; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
 .button-container .btn {
@@ -202,6 +203,8 @@ body {
 .btn:hover {
     background-color: var(--clr-button-hover-bg);
     transform: scale(1.05);
+    box-shadow: 0 0 15px var(--clr-neon);
+    transform: translateY(-2px);
 }
 
 /* Keyframes for fade-in effect */
