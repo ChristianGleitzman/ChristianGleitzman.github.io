@@ -39,6 +39,7 @@ function playHover(ev) {
 async function fetchGitHubProjects() {
     const username = 'ChristianGleitzman';
     const container = document.getElementById('github-projects');
+    const excludedRepos = ['ChristianGleitzman.github.io'];
     
 
     if (!container) return;

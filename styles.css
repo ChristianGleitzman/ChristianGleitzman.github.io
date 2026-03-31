@@ -202,9 +202,8 @@ body {
 
 .btn:hover {
     background-color: var(--clr-button-hover-bg);
-    transform: scale(1.05);
     box-shadow: 0 0 15px var(--clr-neon);
-    transform: translateY(-2px);
+    transform: scale(1.05) translateY(-2px);
 }
 
 /* Keyframes for fade-in effect */
@@ -261,15 +260,22 @@ form {
     border-radius: 10px;
 }
 
-label, input {
+label, input, textarea {
     margin-bottom: 10px;
     font-size: 16px;
 }
 
-input { 
+input, textarea { 
     background-color: var(--clr-light);
     border: 2px solid var(--clr-neon);
     border-radius: 3px;
+    padding: 0.5em;
+    color: var(--clr-dark);
+    font-family: inherit;
+}
+
+textarea {
+    resize: vertical;
 }
 
 input[type="submit"] {
@@ -486,4 +492,3 @@ input[type="submit"] {
 .social-list-link:hover {
     opacity: 0.7;
 }
-
