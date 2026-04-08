@@ -1,4 +1,5 @@
 import React from 'react';
+import { ProjectsCarousel } from '@/components/ProjectsCarousel';
 
 interface GitHubRepo {
     id: number;
@@ -38,31 +39,7 @@ export default async function ProjectsPage() {
                 </p>
             </section>
 
-            <section className="projects-section">
-                <div className="projects-container">
-                    {portfolioProjects.map((repo) => {
-                        const imageUrl = `https://raw.githubusercontent.com/${username}/${repo.name}/${repo.default_branch}/preview.png`;
-                        
-                        return (
-                            <article key={repo.id} className="project-card" style={{ position: 'relative', display: 'flex', flexDirection: 'column' }}>
-                                <h3 className="project-title">{repo.name}</h3>
-                                <div className="project-images">
-                                    <img src={imageUrl} alt={`${repo.name} preview`} style={{ width: '100%', borderRadius: '5px' }} />
-                                </div>
-                                <p className="project-description" style={{ flexGrow: 1 }}>
-                                    {repo.description ?? "No description provided."}
-                                </p>
-                                <div className="project-links" style={{ display: 'flex', gap: '10px', marginTop: '1rem' }}>
-                                    <a href={repo.html_url} className="btn" target="_blank" rel="noopener noreferrer">View Code</a>
-                                    {repo.homepage && (
-                                        <a href={repo.homepage} className="btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                                    )}
-                                </div>
-                            </article>
-                        );
-                    })}
-                </div>
-            </section>
+            <ProjectsCarousel repos={portfolioProjects} username={username} />
         </div>
     );
 }
