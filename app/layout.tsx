@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { readonly children: React.Reac
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <title>Christian Gleitzman | Portfolio</title>
-        <meta name="description" content="Computer Science Student specializing in systems design and backend architecture." />
+        <meta name="description" content="Computer Science Student specialising in systems design and backend architecture." />
       </head>
       <body className="landing-body">
         {!isLanding && (
@@ -30,7 +30,6 @@ export default function RootLayout({ children }: { readonly children: React.Reac
           </header>
         )}
 
-        {/* The active page content is injected here */}
         <main className="content-wrapper" style={{ flex: 1, width: '100%' }}>
           {children}
         </main>
