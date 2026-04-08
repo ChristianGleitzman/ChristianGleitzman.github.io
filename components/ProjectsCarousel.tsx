@@ -64,7 +64,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ repos, username }) =
             {repos.map((repo, index) => (
                 <div
                     key={repo.id}
-                    ref={(el) => (cardRefs.current[index] = el)}
+                    ref={(el) => { cardRefs.current[index] = el; }}
                     className={`animated-project-card ${visibleCards.has(index) ? 'visible' : ''}`}
                     data-index={index}
                     style={{ animationDelay: `${index * 0.1}s` }}

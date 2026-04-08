@@ -74,7 +74,7 @@ const manualProjectsData: ManualProject[] = [
 
 export const ManualProjects: React.FC = () => {
   const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const cardRefs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
