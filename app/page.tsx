@@ -11,9 +11,9 @@ export default function Home() {
       <div className="button-container">
         <SoundButton href="/about" text="Explore My Work" soundFile="btnHov" />
         <SoundButton href="/projects" text="See My Projects" soundFile="btnHov" />
-        <a href="/cv.pdf" className="btn cv-button" download>
+        {/* <a href="/cv.pdf" className="btn cv-button" download>
           Download CV
-        </a>
+        </a> */}
       </div>
     </div>
   );
