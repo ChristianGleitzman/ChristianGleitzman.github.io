@@ -20,17 +20,17 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ repo, username }) => {
     const [imageError, setImageError] = useState(false);
-    const [currentImageUrl, setCurrentImageUrl] = useState(
-        `https://raw.githubusercontent.com/${username}/${repo.name}/${repo.default_branch}/preview.png`
-    );
+    const [triedFallback, setTriedFallback] = useState(false);
+
+    // Try .PNG first (uppercase), then png (lowercase)
+    const currentImageUrl = triedFallback
+        ? `https://raw.githubusercontent.com/${username}/${repo.name}/${repo.default_branch}/preview.png`
+        : `https://raw.githubusercontent.com/${username}/${repo.name}/${repo.default_branch}/preview.PNG`;
 
     const handleImageError = () => {
-        const pngUrl = `https://raw.githubusercontent.com/${username}/${repo.name}/${repo.default_branch}/preview.png`;
-        const PNGUrl = `https://raw.githubusercontent.com/${username}/${repo.name}/${repo.default_branch}/preview.PNG`;
-        
-        // If current URL is .png, try .PNG
-        if (currentImageUrl.endsWith('.png')) {
-            setCurrentImageUrl(PNGUrl);
+        if (!triedFallback) {
+            // Try the lowercase .png next time
+            setTriedFallback(true);
         } else {
             // Both failed, show placeholder
             setImageError(true);
@@ -43,28 +43,27 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ repo, username }) => {
             <div className="project-images">
                 {!imageError ? (
                     <img
+                        key={currentImageUrl}
                         src={currentImageUrl}
                         alt={`${repo.name} preview`}
-                        style={{ width: '100%', height: 'auto', borderRadius: '5px', marginBottom: '10px', display: 'block' }}
+                        style={{ width: '70%', height: 'auto', borderRadius: '8px', marginBottom: '10px', display: 'block', margin: '0 auto 10px auto' }}
                         onError={handleImageError}
                     />
                 ) : (
-                    <div
-                        style={{
-                            width: '100%',
-                            height: '200px',
-                            backgroundColor: '#1a1a1a',
-                            borderRadius: '5px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            marginBottom: '10px',
-                            color: '#888',
-                            fontSize: '0.9rem',
-                            border: '1px solid #333',
-                        }}
-                    >
-                        No preview image
+                    <div style={{
+                        width: '100%',
+                        height: '200px',
+                        backgroundColor: 'rgba(162, 255, 220, 0.05)',
+                        border: '2px dashed rgba(162, 255, 220, 0.2)',
+                        borderRadius: '8px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: 'rgba(162, 255, 220, 0.4)',
+                        fontSize: '0.9rem',
+                        fontStyle: 'italic'
+                    }}>
+                        Add preview image to repo
                     </div>
                 )}
             </div>

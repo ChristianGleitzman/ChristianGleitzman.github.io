@@ -1,5 +1,6 @@
 import React from 'react';
-import { ProjectsCarousel } from '@/components/ProjectsCarousel';
+import { ProjectsGrid } from '@/components/ProjectsCarousel';
+import { ManualProjects } from '@/components/ManualProjects';
 
 interface GitHubRepo {
     id: number;
@@ -24,9 +25,9 @@ export default async function ProjectsPage() {
 
     const repos: GitHubRepo[] = await res.json();
 
-    const portfolioProjects = repos.filter(repo => 
-        !repo.fork && 
-        !excludedRepos.includes(repo.name) && 
+    const portfolioProjects = repos.filter(repo =>
+        !repo.fork &&
+        !excludedRepos.includes(repo.name) &&
         repo.topics.includes('portfolio')
     );
 
@@ -39,7 +40,15 @@ export default async function ProjectsPage() {
                 </p>
             </section>
 
-            <ProjectsCarousel repos={portfolioProjects} username={username} />
+            <div style={{ marginBottom: '3rem' }}>
+                <h3 className="section-title" style={{ marginBottom: '1.5rem' }}>Featured Work</h3>
+                <ManualProjects />
+            </div>
+
+            <div>
+                <h3 className="section-title" style={{ marginBottom: '1.5rem' }}>Additional Projects</h3>
+                <ProjectsGrid repos={portfolioProjects} username={username} />
+            </div>
         </div>
     );
 }

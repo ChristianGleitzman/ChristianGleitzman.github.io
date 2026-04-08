@@ -1,5 +1,5 @@
 import React from 'react';
-import { SkillsMatrix } from '@/components/SkillsMatrix';
+import { SkillsGrid } from '@/components/SkillsGrid';
 
 export default function AboutPage(): React.ReactElement {
   return (
@@ -11,7 +11,7 @@ export default function AboutPage(): React.ReactElement {
         </p>
       </section>
 
-      <SkillsMatrix />
+      <SkillsGrid />
 
       <section className="activities-section">
         <h3 className="section-title">Experience</h3>

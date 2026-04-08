@@ -14,71 +14,64 @@ interface GitHubRepo {
     fork: boolean;
 }
 
-interface ProjectsCarouselProps {
+interface ProjectsGridProps {
     repos: GitHubRepo[];
     username: string;
 }
 
-export const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({ repos, username }) => {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const [scrollAmount, setScrollAmount] = useState(0);
+export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ repos, username }) => {
+    const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
+    const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     useEffect(() => {
-        const container = containerRef.current;
-        if (!container) return;
-
-        // Calculate scroll amount based on first card width
-        const calculateScroll = () => {
-            const firstCard = container.querySelector('.project-card');
-            if (firstCard) {
-                const cardWidth = firstCard.clientWidth;
-                const gap = 20; // from CSS
-                setScrollAmount(cardWidth + gap);
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target as HTMLElement;
+                        const cardIndex = parseInt(target.dataset.index || '0');
+                        
+                        // Add a small delay for staggered animation
+                        setTimeout(() => {
+                            setVisibleCards(prev => new Set([...prev, cardIndex]));
+                        }, cardIndex * 150); // 150ms stagger
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
             }
-        };
+        );
 
-        // Initial calculation
-        calculateScroll();
-
-        // Recalculate on window resize
-        window.addEventListener('resize', calculateScroll);
-        return () => window.removeEventListener('resize', calculateScroll);
-    }, []);
-
-    const handleScroll = (direction: 'left' | 'right') => {
-        const container = containerRef.current;
-        if (!container) return;
-
-        const scrollValue = direction === 'right' ? scrollAmount : -scrollAmount;
-        container.scrollBy({
-            left: scrollValue,
-            behavior: 'smooth',
+        cardRefs.current.forEach((card) => {
+            if (card) observer.observe(card);
         });
-    };
+
+        return () => observer.disconnect();
+    }, [repos.length]);
+
+    if (repos.length === 0) {
+        return (
+            <div className="no-projects">
+                <p>No GitHub projects found. Make sure your repositories have the 'portfolio' topic tag.</p>
+            </div>
+        );
+    }
 
     return (
-        <section className="projects-section">
-            <div className="scroll-buttons-container">
-                <button
-                    className="scroll-button left"
-                    onClick={() => handleScroll('left')}
-                    aria-label="Scroll projects left"
+        <section className="github-projects-grid">
+            {repos.map((repo, index) => (
+                <div
+                    key={repo.id}
+                    ref={(el) => (cardRefs.current[index] = el)}
+                    className={`animated-project-card ${visibleCards.has(index) ? 'visible' : ''}`}
+                    data-index={index}
+                    style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                    &#9664;
-                </button>
-                <button
-                    className="scroll-button right"
-                    onClick={() => handleScroll('right')}
-                    aria-label="Scroll projects right"
-                >
-                    &#9654;
-                </button>
-            </div>
-            <div className="projects-container" ref={containerRef}>
-                {repos.map((repo) => (
-                    <ProjectCard key={repo.id} repo={repo} username={username} />
-                ))}
-            </div>
+                    <ProjectCard repo={repo} username={username} />
+                </div>
+            ))}
         </section>
     );
 };
