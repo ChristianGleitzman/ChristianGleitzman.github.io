@@ -1,4 +1,4 @@
-name: Publish Portfolio to GHCR
+name: Publish and Deploy Portfolio
 
 on:
   push:
@@ -7,11 +7,10 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  # Converts the repository name to lowercase automatically
   IMAGE_NAME: ${{ github.repository }} 
 
 jobs:
-  build-and-push-image:
+  build-push-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -41,3 +40,21 @@ jobs:
           push: true
           tags: ${{ env.REGISTRY }}/christiangleitzman/portfolio-website:latest
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Execute Remote SSH Deployment
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_IP }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            cd ~/server-infra
+            
+            # Explicitly pull ONLY the updated portfolio image
+            docker compose pull portfolio
+            
+            # Recreate and restart ONLY the portfolio container without downtime for the API
+            docker compose up -d portfolio
+            
+            # Clean up the old, untagged portfolio image to prevent memory leaks
+            docker image prune -f
