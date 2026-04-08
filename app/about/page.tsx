@@ -1,38 +1,41 @@
 import React from 'react';
+import { SkillsMatrix } from '@/components/SkillsMatrix';
 
 export default function AboutPage(): React.ReactElement {
   return (
     <div className="content">
       <section className="overview-section">
-        <h3 className="section-title">Overview</h3>
+        <h3 className="section-title">About Me</h3>
         <p className="section-text">
-          I am a Computer Science undergraduate at the University of Southampton, currently ranking in the <strong>top 10 of my cohort with a Year 1 average of 88%</strong>.
-          <br /><br />
-          My focus lies in software architecture and backend systems. I move beyond theory to build functional, secure applications.
-          <br /><br />
-          Parallel to my degree, I have maintained a long-term role at Tesco. Working in a high-pressure retail environment has honed my adaptability and communication skills, ensuring I can deliver results both in code and in collaboration.
+          I'm a Computer Science undergraduate at the University of Southampton, currently ranking in the <strong>top 10 of my cohort with an 88% Year 1 average</strong>. My interests lie in <strong>backend and cloud development</strong>, but will never turn down the opportunity to solve real-world problems with code!
         </p>
       </section>
 
+      <SkillsMatrix />
+
       <section className="activities-section">
-        <h3 className="section-title">Technical Skills</h3>
-        <p className="section-text">
-          My academic and personal projects have built a strong foundation in:
-        </p>
-        <ul>
-          <li><strong>Core Languages:</strong> Java (Proficient), Python, Haskell, SQL.</li>
-          <li><strong>Systems Engineering:</strong> Concurrency/Multi-threading, Socket Networking, OOP Patterns.</li>
-          <li><strong>Tools:</strong> Git/GitHub, Linux/Unix, IntelliJ, VS Code.</li>
-        </ul>
+        <h3 className="section-title">Experience</h3>
+        <div className="experience-item">
+          <h4 className="experience-title">Retail Team Member — Tesco</h4>
+          <p className="experience-details">
+            Working in a high-pressure retail environment has honed my <strong>adaptability, teamwork, and communication skills</strong>. I've learned to manage time effectively, work under pressure, and deliver consistent results—skills directly transferable to collaborative development teams.
+          </p>
+        </div>
       </section>
 
       <section className="aspirations-section">
-        <h3 className="section-title">Future Aspirations</h3>
+        <h3 className="section-title">What I'm Seeking</h3>
         <p className="section-text">
-          I'm eager to apply my growing technical skill set in real-world settings - whether through internships, collaborative projects, or freelance work. 
-          My long-term goal is to contribute to impactful software that addresses real-world challenges and improves lives.
-          <br /><br />
-          If you're interested in connecting, collaborating, or sharing insights, feel free to reach out via <a className="inlineLink" href="/contact">my contact page</a> or on <a className="inlineLink" href="https://www.linkedin.com/in/christian-gleitzman" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+          I'm actively pursuing <strong>internship opportunities</strong> where I can apply my technical skills to real-world challenges. I'm particularly interested in:
+        </p>
+        <ul style={{ marginLeft: '1.5rem' }}>
+          <li>Backend/Systems engineering roles</li>
+          <li>Software infrastructure & architecture</li>
+          <li>Roles emphasising code quality and system design</li>
+          <li>Teams that value learning and mentorship</li>
+        </ul>
+        <p className="section-text" style={{ marginTop: '1.5rem' }}>
+          If you're interested in connecting, collaborating, or discussing opportunities, feel free to reach out via <a className="inlineLink" href="/contact">my contact page</a> or on <a className="inlineLink" href="https://www.linkedin.com/in/christian-gleitzman" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
         </p>
       </section>
     </div>
