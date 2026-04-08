@@ -16,9 +16,9 @@ export default function AboutPage(): React.ReactElement {
       <section className="activities-section">
         <h3 className="section-title">Experience</h3>
         <div className="experience-item">
-          <h4 className="experience-title">Retail Team Member — Tesco</h4>
+          <h4 className="experience-title">Retail Team Member - Tesco</h4>
           <p className="experience-details">
-            Working in a high-pressure retail environment has honed my <strong>adaptability, teamwork, and communication skills</strong>. I've learned to manage time effectively, work under pressure, and deliver consistent results—skills directly transferable to collaborative development teams.
+            Working in a high-pressure retail environment has honed my <strong>adaptability, teamwork, and communication skills</strong>. I've learned to manage time effectively, work under pressure, and deliver consistent results. I hope to transfer these skills to collaborative development teams!
           </p>
         </div>
       </section>

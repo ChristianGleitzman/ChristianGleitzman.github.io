@@ -22,6 +22,9 @@ export const SkillsMatrix: React.FC = () => {
   return (
     <section className="skills-matrix">
       <h3 className="section-title">Skills & Proficiency</h3>
+      <p className="skills-disclaimer">
+        <em>Percentages are relative to my own experience. I'm comfortable building real projects with these technologies, not claiming expertise in every edge case.</em>
+      </p>
       {categories.map((category) => (
         <div key={category} className="skill-category">
           <h4 className="category-title">{category}</h4>
