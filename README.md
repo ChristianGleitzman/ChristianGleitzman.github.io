@@ -10,13 +10,14 @@ This is my personal coding portfolio website that showcases my skills, projects,
 
 ## Technologies Used
 
-- HTML5
-- CSS3
-- JavaScript
+- HTML
+- Tailwind CSS
+- TypeScript
+- Next.js
 
 ## Contributing
 
-If you have any suggestions or find any bugs, feel free to open an issue or create a pull request. I appreciate your contributions to improve this website!
+If you have any suggestions or find any bugs, feel free to send me an email or use the website contact form. I appreciate your contributions to improve this website!
 
 ## Contact
 
