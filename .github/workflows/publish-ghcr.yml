@@ -39,5 +39,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.REGISTRY }}/christiangleitzman/portfolio:latest
+          tags: ${{ env.REGISTRY }}/christiangleitzman/portfolio-website:latest
           labels: ${{ steps.meta.outputs.labels }}
