@@ -41,7 +41,8 @@ export default function ContactPage(): React.ReactElement {
       });
 
       if (!response.ok) {
-        throw new Error("Network response returned an error status.");
+        const errorDetail = await response.text();
+        throw new Error(`HTTP ${response.status} - ${errorDetail}`);
       }
 
       setStatusMsg("Thank you! Your message has been sent successfully.");
