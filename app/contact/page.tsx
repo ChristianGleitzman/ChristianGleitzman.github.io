@@ -1,11 +1,60 @@
-import React from 'react';
-import Link from 'next/link';
+"use client";
+
+import React, { useState, FormEvent } from 'react';
 
 /**
- * Renders the Contact page.
- * @returns A React functional component.
+ * Renders the Contact page and handles asynchronous API communication.
+ * @returns A strictly-typed React functional component.
  */
 export default function ContactPage(): React.ReactElement {
+  // State management for UI feedback during network requests
+  const [statusMsg, setStatusMsg] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
+  /**
+   * Intercepts the form submission, serializes data, and executes an async POST request.
+   * @param e - The HTML form submission event.
+   */
+  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatusMsg("");
+
+    const formData = new FormData(e.currentTarget);
+    
+    // Construct the payload matching the Python ContactPayloadDTO
+    const payload = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      subject: formData.get("subject") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      // Dispatch payload to your versioned API route
+      const response = await fetch("https://api.christian-gleitzman.me/api/v1/communications/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response returned an error status.");
+      }
+
+      setStatusMsg("Thank you! Your message has been sent successfully.");
+      (e.target as HTMLFormElement).reset(); // Clear the form on success
+      
+    } catch (error) {
+      console.error("API Dispatch Error:", error);
+      setStatusMsg("Failed to send message. Please try emailing me directly.");
+    } finally {
+      setIsSubmitting(false); // Re-enable the form
+    }
+  };
+
   return (
     <div className="content">
       {/* Open to Opportunities Banner */}
@@ -34,26 +83,69 @@ export default function ContactPage(): React.ReactElement {
         </p>
 
         <div className="form-container">
-          <form
-            id="contact-form"
-            action="https://docs.google.com/forms/d/e/1FAIpQLSc__BiQ68zUorGc6_mQVzTtzk-HnPzGu_l9clwJkVG-6lU7Cg/formResponse"
-            method="POST"
-          >
-            <label htmlFor="entry.1377322308">Name</label>
-            <input type="text" name="entry.1377322308" id="entry.1377322308" placeholder="Your name" required />
+          <form id="contact-form" onSubmit={handleFormSubmit}>
+            <label htmlFor="name">Name</label>
+            <input 
+              type="text" 
+              name="name" 
+              id="name" 
+              placeholder="Your name" 
+              required 
+              disabled={isSubmitting} 
+            />
 
-            <label htmlFor="entry.1417686407">Email Address</label>
-            <input type="email" name="entry.1417686407" id="entry.1417686407" placeholder="your@email.com" required />
+            <label htmlFor="email">Email Address</label>
+            <input 
+              type="email" 
+              name="email" 
+              id="email" 
+              placeholder="your@email.com" 
+              required 
+              disabled={isSubmitting} 
+            />
 
-            <label htmlFor="entry.1500459884">Subject</label>
-            <input type="text" name="entry.1500459884" id="entry.1500459884" placeholder="e.g., Internship Opportunity" required />
+            <label htmlFor="subject">Subject</label>
+            <input 
+              type="text" 
+              name="subject" 
+              id="subject" 
+              placeholder="e.g., Internship Opportunity" 
+              required 
+              disabled={isSubmitting} 
+            />
 
-            <label htmlFor="entry.138196121">Message</label>
-            <textarea name="entry.138196121" id="entry.138196121" rows={5} placeholder="Tell me more..." required></textarea>
+            <label htmlFor="message">Message</label>
+            <textarea 
+              name="message" 
+              id="message" 
+              rows={5} 
+              placeholder="Tell me more..." 
+              required 
+              disabled={isSubmitting}
+            ></textarea>
 
-            <input type="submit" value="Send Message" className="btn" />
+            <input 
+              type="submit" 
+              value={isSubmitting ? "Sending..." : "Send Message"} 
+              className="btn" 
+              disabled={isSubmitting} 
+            />
           </form>
-          <div id="form-status"></div>
+          
+          {/* Status Message Display */}
+          {statusMsg && (
+            <div 
+              id="form-status" 
+              style={{ 
+                marginTop: '1rem', 
+                color: statusMsg.includes("Failed") ? 'hsl(0, 100%, 60%)' : 'hsl(162, 92%, 50%)',
+                textAlign: 'center',
+                fontWeight: 'bold'
+              }}
+            >
+              {statusMsg}
+            </div>
+          )}
         </div>
       </section>
 
