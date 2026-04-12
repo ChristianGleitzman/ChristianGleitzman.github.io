@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, FormEvent } from 'react';
+import { ScrollFadeIn } from '@/components/ScrollFadeIn';
 
 /**
  * Renders the Contact page and handles asynchronous API communication.
@@ -59,111 +60,117 @@ export default function ContactPage(): React.ReactElement {
   return (
     <div className="content">
       {/* Open to Opportunities Banner */}
-      <section className="opportunity-banner">
-        <div className="banner-content">
-          <h3>Open to Internship Opportunities</h3>
-          <p>
-            I'm actively seeking summer internship positions. If you have an opportunity that aligns with my interests, I'd love to hear from you!
-          </p>
-        </div>
-      </section>
+      <ScrollFadeIn>
+        <section className="opportunity-banner">
+          <div className="banner-content">
+            <h3>Open to Internship Opportunities</h3>
+            <p>
+              I'm actively seeking summer internship positions. If you have an opportunity that aligns with my interests, I'd love to hear from you!
+            </p>
+          </div>
+        </section>
+      </ScrollFadeIn>
 
-      <section className="contact-me">
-        <h2>Get In Touch</h2>
-        <p className="contact-me-info">
-          The easiest way to reach me is via <strong>email</strong>, and I'll do my best to respond promptly. You can also connect with me on{' '}
-          <a
-            className="inlineLink"
-            href="https://www.linkedin.com/in/christian-gleitzman"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-          . Alternatively, fill out the form below:
-        </p>
-
-        <div className="form-container">
-          <form id="contact-form" onSubmit={handleFormSubmit}>
-            <label htmlFor="name">Name</label>
-            <input 
-              type="text" 
-              name="name" 
-              id="name" 
-              placeholder="Your name" 
-              required 
-              disabled={isSubmitting} 
-            />
-
-            <label htmlFor="email">Email Address</label>
-            <input 
-              type="email" 
-              name="email" 
-              id="email" 
-              placeholder="your@email.com" 
-              required 
-              disabled={isSubmitting} 
-            />
-
-            <label htmlFor="subject">Subject</label>
-            <input 
-              type="text" 
-              name="subject" 
-              id="subject" 
-              placeholder="e.g., Internship Opportunity" 
-              required 
-              disabled={isSubmitting} 
-            />
-
-            <label htmlFor="message">Message</label>
-            <textarea 
-              name="message" 
-              id="message" 
-              rows={5} 
-              placeholder="Tell me more..." 
-              required 
-              disabled={isSubmitting}
-            ></textarea>
-
-            <input 
-              type="submit" 
-              value={isSubmitting ? "Sending..." : "Send Message"} 
-              className="btn" 
-              disabled={isSubmitting} 
-            />
-          </form>
-          
-          {/* Status Message Display */}
-          {statusMsg && (
-            <div 
-              id="form-status" 
-              style={{ 
-                marginTop: '1rem', 
-                color: statusMsg.includes("Failed") ? 'hsl(0, 100%, 60%)' : 'hsl(162, 92%, 50%)',
-                textAlign: 'center',
-                fontWeight: 'bold'
-              }}
+      <ScrollFadeIn delay={0.2}>
+        <section className="contact-me">
+          <h2>Get In Touch</h2>
+          <p className="contact-me-info">
+            The easiest way to reach me is via <strong>email</strong>, and I'll do my best to respond promptly. You can also connect with me on{' '}
+            <a
+              className="inlineLink"
+              href="https://www.linkedin.com/in/christian-gleitzman"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {statusMsg}
-            </div>
-          )}
-        </div>
-      </section>
+              LinkedIn
+            </a>
+            . Alternatively, fill out the form below:
+          </p>
 
-      <section className="quick-contact">
-        <h3 className="section-title">Direct Contact</h3>
-        <div className="contact-methods">
-          <a href="mailto:chris.gleitzman@gmail.com" className="contact-link">
-            + chris.gleitzman@gmail.com
-          </a>
-          <a href="https://www.linkedin.com/in/christian-gleitzman" className="contact-link" target="_blank" rel="noopener noreferrer">
-            + LinkedIn Profile
-          </a>
-          <a href="https://github.com/ChristianGleitzman" className="contact-link" target="_blank" rel="noopener noreferrer">
-            + GitHub Profile
-          </a>
-        </div>
-      </section>
+          <div className="form-container">
+            <form id="contact-form" onSubmit={handleFormSubmit}>
+              <label htmlFor="name">Name</label>
+              <input 
+                type="text" 
+                name="name" 
+                id="name" 
+                placeholder="Your name" 
+                required 
+                disabled={isSubmitting} 
+              />
+
+              <label htmlFor="email">Email Address</label>
+              <input 
+                type="email" 
+                name="email" 
+                id="email" 
+                placeholder="your@email.com" 
+                required 
+                disabled={isSubmitting} 
+              />
+
+              <label htmlFor="subject">Subject</label>
+              <input 
+                type="text" 
+                name="subject" 
+                id="subject" 
+                placeholder="e.g., Internship Opportunity" 
+                required 
+                disabled={isSubmitting} 
+              />
+
+              <label htmlFor="message">Message</label>
+              <textarea 
+                name="message" 
+                id="message" 
+                rows={5} 
+                placeholder="Tell me more..." 
+                required 
+                disabled={isSubmitting}
+              ></textarea>
+
+              <input 
+                type="submit" 
+                value={isSubmitting ? "Sending..." : "Send Message"} 
+                className="btn" 
+                disabled={isSubmitting} 
+              />
+            </form>
+            
+            {/* Status Message Display */}
+            {statusMsg && (
+              <div 
+                id="form-status" 
+                style={{ 
+                  marginTop: '1rem', 
+                  color: statusMsg.includes("Failed") ? 'hsl(0, 100%, 60%)' : 'hsl(162, 92%, 50%)',
+                  textAlign: 'center',
+                  fontWeight: 'bold'
+                }}
+              >
+                {statusMsg}
+              </div>
+            )}
+          </div>
+        </section>
+      </ScrollFadeIn>
+
+      <ScrollFadeIn delay={0.4}>
+        <section className="quick-contact">
+          <h3 className="section-title">Direct Contact</h3>
+          <div className="contact-methods">
+            <a href="mailto:chris.gleitzman@gmail.com" className="contact-link">
+              + chris.gleitzman@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/christian-gleitzman" className="contact-link" target="_blank" rel="noopener noreferrer">
+              + LinkedIn Profile
+            </a>
+            <a href="https://github.com/ChristianGleitzman" className="contact-link" target="_blank" rel="noopener noreferrer">
+              + GitHub Profile
+            </a>
+          </div>
+        </section>
+      </ScrollFadeIn>
     </div>
   );
 }

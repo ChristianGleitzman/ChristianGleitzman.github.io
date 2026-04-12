@@ -1,6 +1,7 @@
 import React from 'react';
 import { ProjectsGrid } from '@/components/ProjectsCarousel';
 import { ManualProjects } from '@/components/ManualProjects';
+import { ScrollFadeIn } from '@/components/ScrollFadeIn';
 
 interface GitHubRepo {
     id: number;
@@ -33,22 +34,28 @@ export default async function ProjectsPage() {
 
     return (
         <div className="content projects">
-            <section className="projects-intro">
-                <h2 className="section-title">My Projects</h2>
-                <p className="section-text">
-                    A selection of projects demonstrating my proficiency in systems design, software development, and algorithmic problem-solving. These projects highlight my commitment to making useful and impactful software. You can catch a glimpse of them below or view the full source repositories on my GitHub.
-                </p>
-            </section>
+            <ScrollFadeIn>
+                <section className="projects-intro">
+                    <h2 className="section-title">My Projects</h2>
+                    <p className="section-text">
+                        A selection of projects demonstrating my proficiency in systems design, software development, and algorithmic problem-solving. These projects highlight my commitment to making useful and impactful software. You can catch a glimpse of them below or view the full source repositories on my GitHub.
+                    </p>
+                </section>
+            </ScrollFadeIn>
 
-            <div style={{ marginBottom: '3rem' }}>
-                <h3 className="section-title" style={{ marginBottom: '1.5rem' }}>Featured Work</h3>
-                <ManualProjects />
-            </div>
+            <ScrollFadeIn delay={0.2}>
+                <div style={{ marginBottom: '3rem' }}>
+                    <h3 className="section-title" style={{ marginBottom: '1.5rem' }}>Featured Work</h3>
+                    <ManualProjects />
+                </div>
+            </ScrollFadeIn>
 
-            <div>
-                <h3 className="section-title" style={{ marginBottom: '1.5rem' }}>Additional Projects</h3>
-                <ProjectsGrid repos={portfolioProjects} username={username} />
-            </div>
+            <ScrollFadeIn delay={0.4}>
+                <div>
+                    <h3 className="section-title" style={{ marginBottom: '1.5rem' }}>Additional Projects</h3>
+                    <ProjectsGrid repos={portfolioProjects} username={username} />
+                </div>
+            </ScrollFadeIn>
         </div>
     );
 }

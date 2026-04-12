@@ -31,6 +31,163 @@
     --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
+/* Light theme */
+html[data-theme="light"] {
+    --clr-dark: hsl(0, 0%, 100%);
+    --clr-section-bg: hsl(160, 25%, 96%);
+    --clr-text-primary: hsl(160, 15%, 18%);
+    --clr-text-secondary: hsl(160, 10%, 48%);
+    --clr-border: hsl(160, 20%, 87%);
+    --clr-button-bg: hsl(162, 65%, 46%);
+    --clr-button-hover-bg: hsl(162, 70%, 52%);
+    --clr-neon: hsl(162, 60%, 50%);
+    --clr-accent: hsl(162, 65%, 46%);
+    --shadow-sm: 0 2px 8px rgba(30, 130, 100, 0.08);
+    --shadow-md: 0 4px 16px rgba(30, 130, 100, 0.12);
+    --shadow-lg: 0 8px 24px rgba(30, 130, 100, 0.16);
+}
+
+html[data-theme="light"] .navbar {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+html[data-theme="light"] input,
+html[data-theme="light"] textarea {
+    background-color: hsl(160, 25%, 98%);
+    border-color: hsl(160, 20%, 87%);
+    color: hsl(160, 15%, 18%);
+    box-shadow: inset 0 1px 3px rgba(30, 130, 100, 0.05);
+}
+
+html[data-theme="light"] input:focus,
+html[data-theme="light"] textarea:focus {
+    background-color: hsl(0, 0%, 100%);
+    border-color: hsl(162, 65%, 46%);
+    box-shadow: 0 0 0 3px rgba(30, 130, 100, 0.1);
+}
+
+html[data-theme="light"] .navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom-color: hsl(160, 20%, 90%);
+    box-shadow: 0 2px 8px rgba(30, 130, 100, 0.08);
+}
+
+html[data-theme="light"] .navbar .nav-links a {
+    color: hsl(160, 10%, 48%);
+}
+
+html[data-theme="light"] .navbar .nav-links a::after {
+    background-color: hsl(162, 65%, 46%);
+}
+
+html[data-theme="light"] .navbar .nav-links a:hover {
+    color: hsl(162, 65%, 46%);
+}
+
+html[data-theme="light"] .theme-toggle {
+    border-color: hsl(160, 20%, 85%);
+    color: hsl(162, 65%, 46%);
+    background-color: rgba(30, 130, 100, 0.05);
+}
+
+html[data-theme="light"] .theme-toggle:hover {
+    background-color: rgba(30, 130, 100, 0.1);
+    border-color: hsl(162, 65%, 46%);
+}
+
+html[data-theme="light"] .experience-item {
+    background-color: hsl(160, 25%, 97%);
+    border-color: hsl(160, 20%, 87%);
+}
+
+html[data-theme="light"] .experience-item:hover {
+    border-color: hsl(162, 65%, 46%);
+    background-color: rgba(30, 130, 100, 0.05);
+}
+
+html[data-theme="light"] form {
+    background-color: hsl(160, 25%, 97%);
+    border-color: hsl(160, 20%, 87%);
+}
+
+html[data-theme="light"] .opportunity-banner {
+    background: linear-gradient(135deg, rgba(30, 130, 100, 0.08), rgba(30, 130, 100, 0.03));
+    border-color: hsl(162, 65%, 46%);
+    box-shadow: 0 0 20px rgba(30, 130, 100, 0.08);
+}
+
+html[data-theme="light"] .opportunity-banner h3 {
+    color: hsl(162, 65%, 42%);
+}
+
+html[data-theme="light"] label {
+    color: hsl(160, 15%, 18%);
+}
+
+html[data-theme="light"] .contact-link {
+    background-color: hsl(160, 25%, 97%);
+    border-color: hsl(160, 20%, 87%);
+    color: hsl(162, 65%, 46%);
+}
+
+html[data-theme="light"] .contact-link:hover {
+    background-color: rgba(30, 130, 100, 0.08);
+    border-color: hsl(162, 65%, 46%);
+}
+
+/* Light theme social and card overrides for contrast on grey backgrounds */
+html[data-theme="light"] .social-list-link {
+    background-color: hsl(162, 70%, 38%);
+    border-color: hsl(162, 75%, 48%);
+}
+
+html[data-theme="light"] .social-list-link:hover {
+    background-color: hsl(162, 75%, 44%);
+    border-color: hsl(162, 80%, 52%);
+}
+
+html[data-theme="light"] .project-card {
+    background-color: hsl(0, 0%, 100%);
+    border-color: hsl(160, 20%, 87%);
+    box-shadow: 0 2px 8px rgba(30, 130, 100, 0.08);
+}
+
+html[data-theme="light"] .project-card:hover {
+    border-color: hsl(162, 65%, 46%);
+    box-shadow: 0 4px 16px rgba(30, 130, 100, 0.12);
+    background-color: hsl(160, 25%, 98%);
+}
+
+html[data-theme="light"] .footer {
+    background-color: hsl(0, 0%, 100%);
+    border-top-color: hsl(160, 20%, 87%);
+}
+
+html[data-theme="light"] .footer p,
+html[data-theme="light"] .footer a {
+    color: hsl(160, 10%, 48%);
+}
+
+html[data-theme="light"] .footer a {
+    color: hsl(162, 65%, 46%);
+}
+
+html[data-theme="light"] .footer a:hover {
+    color: hsl(162, 70%, 52%);
+}
+
+html[data-theme="light"] .manual-project-card {
+    background-color: hsl(0, 0%, 100%);
+    border-color: hsl(160, 20%, 87%);
+    box-shadow: 0 2px 8px rgba(30, 130, 100, 0.08);
+}
+
+html[data-theme="light"] .manual-project-card:hover {
+    border-color: hsl(162, 65%, 46%);
+    box-shadow: 0 4px 16px rgba(30, 130, 100, 0.12);
+    background-color: hsl(160, 25%, 98%);
+}
+
 /* Adjust font sizes and border widths for larger screens */
 @media (min-width: 800px) {
     :root {
@@ -144,6 +301,41 @@ body {
 
 .nav-links a:hover::after {
     width: 100%;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: transparent;
+    border: 1px solid var(--clr-border);
+    color: var(--clr-accent);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(162, 255, 220, 0.1);
+    border-color: var(--clr-accent);
+    transform: rotate(20deg);
+}
+
+.theme-toggle:active {
+    transform: rotate(20deg) scale(0.95);
+}
+
+/* Responsive theme toggle for mobile */
+@media (max-width: 768px) {
+    .theme-toggle {
+        padding: 0.4rem 0.6rem;
+        font-size: 1rem;
+        margin-left: 0.5rem;
+    }
 }
 
 /* Responsive navbar for mobile and tablet */
@@ -374,6 +566,28 @@ body {
     to {
         opacity: 1;
     }
+}
+
+/* Scroll-triggered fade-in animation */
+@keyframes scrollFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.fade-in-active {
+    animation: scrollFadeIn 0.6s ease-out forwards;
 }
 
 /* Main content area */
