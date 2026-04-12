@@ -32,7 +32,7 @@ export default function ContactPage(): React.ReactElement {
 
     try {
       // Dispatch payload to your versioned API route
-      const response = await fetch("/api/v1/communications/contact", {
+      const response = await fetch("https://christian-gleitzman.me/api/v1/communications/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
