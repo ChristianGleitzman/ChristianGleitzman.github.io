@@ -16,16 +16,22 @@ export default function RootLayout({ children }: { readonly children: React.Reac
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        
+        {/* Favicon */}
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        
         <title>Christian Gleitzman | Portfolio</title>
         <meta name="description" content="Computer Science Student specialising in backend development, systems design, and cloud architecture." />
         <meta name="keywords" content="Christian Gleitzman, portfolio, software engineer, computer science, backend development" />
         <meta name="author" content="Christian Gleitzman" />
         <meta name="theme-color" content="#1a1a1a" />
         
-        {/* Open Graph Tags for Social Sharing */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Christian Gleitzman | Software Engineering Portfolio" />
-        <meta property="og:description" content="Explore my projects, skills, and journey as an aspiring software engineer specializing in backend development." />
+        <meta property="og:description" content="Explore my projects, skills, and journey as an aspiring software engineer specialising in backend development." />
         <meta property="og:url" content="https://christian-gleitzman.me" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Christian Gleitzman | Portfolio" />
@@ -46,7 +52,7 @@ export default function RootLayout({ children }: { readonly children: React.Reac
               ],
               jobTitle: "Software Engineer (Student)",
               description:
-                "Computer Science student at University of Southampton specializing in backend development and systems design",
+                "Computer Science student at University of Southampton specialising in backend development and systems design",
             }),
           }}
         />
